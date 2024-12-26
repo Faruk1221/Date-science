@@ -1,27 +1,33 @@
+
 import numpy as np
-import pandas as pd 
+import pandas as pd
 import seaborn as sb
 import matplotlib.pyplot as plt
 
-employeedata = {
-    "ID":[1,2,3,4,5,6,6],
-    "Name":["pallab","omor",np.nan,"rahul","nime",np.nan,"lamin"],
-    "Age":[20,np.nan,50,24,34,18,90],
-    "Salary":["2222","400","NA","2000","3000","3444","444"]
 
+EmployeeData = {
+"ID": [1,2,3,4,5,6,6],
+"Name": ["Adib", "Pallab", "Omor", "Rahul", np.nan, "Sourav", np.nan], 
+"Salary":[np.nan, "20000", np.nan, "30000","40000", "60000", "80000"],
+"Age": [20,np.nan,24,25,35,27,29],
 }
-empDF = pd.DataFrame(employeedata)
-print("orignal dataFrame")
 
-empDF["Name"]= empDF["Name"].fillna("Unknown")
+EmpDF = pd.DataFrame (EmployeeData)
 
-avg_age = empDF['Age'].mean()
-empDF['Age'] = empDF["Age"].fillna(avg_age)
+# print("Original DataFrame")
+# print(EmpDF)
 
-empDF('Age') = abs(empDF["Age"])
+EmpDF ["Name"] = EmpDF["Name"].fillna("Unknown")
+# print(EmpDF)
 
-empDF["salary"] = pd.to_numeric(empDF["salary"])
-empDF['salary']=np.nan_to_num(empDF["salary"])
-avg_salary =empDF["salary"].mean()
-empDF['salary']= empDF["salary"].fillna(avg_salary)
-print(empDF)
+avg_age = EmpDF['Age'].mean()
+EmpDF['Age']=EmpDF["Age"].fillna(avg_age)
+
+EmpDF["Age"]= abs(EmpDF["Age"])
+# print(EmpDF)
+
+EmpDF["Salary"]=pd.to_numeric(EmpDF["Salary"])
+EmpDF['Salary'] = np.nan_to_num(EmpDF["Salary"])
+avg_salary = EmpDF["Salary"].mean()
+EmpDF['Salary'] = EmpDF ["Salary"].fillna(avg_salary)
+print(EmpDF)
